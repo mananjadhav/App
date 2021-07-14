@@ -53,8 +53,6 @@ export default {
         notifications: 'Notificaciones',
         noResultsFound: 'No se han encontrado resultados',
         deletedCommentMessage: 'Comentario borrado',
-        timePrefix: 'Son las',
-        conjunctionFor: 'para',
     },
     attachmentPicker: {
         cameraPermissionRequired: 'Se necesita permiso para usar la cámara',
@@ -103,6 +101,7 @@ export default {
         writeSomething: 'Escribe algo...',
         blockedFromConcierge: 'Comunicación no permitida',
         youAppearToBeOffline: 'Parece que estás desconectado.',
+        localTime: ({user, time}) => `Son las ${time} para ${user}`,
     },
     reportActionContextMenu: {
         copyToClipboard: 'Copiar al Portapapeles',
