@@ -70,13 +70,14 @@ const WorkspaceCardPage = ({
     isSmallScreenWidth,
     reimbursementAccount,
 }) => {
-    const isVerifying = lodashGet(reimbursementAccount, 'achData.state', '') === CONST.BANK_ACCOUNT.STATE.VERIFYING;
+    const achDataState = lodashGet(reimbursementAccount, 'achData.state', '');
     let buttonText;
     if (user.isFromPublicDomain) {
         buttonText = translate('workspace.card.addEmail');
     } else if (user.isUsingExpensifyCard) {
         buttonText = translate('workspace.card.manageCards');
-    } else if (isVerifying) {
+    } else if (achDataState === CONST.BANK_ACCOUNT.STATE.VERIFYING
+        || achDataState === CONST.BANK_ACCOUNT.STATE.PENDING) {
         buttonText = translate('workspace.card.finishSetup');
     } else {
         buttonText = translate('workspace.card.getStarted');

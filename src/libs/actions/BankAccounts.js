@@ -554,6 +554,7 @@ function validateBankAccount(bankAccountID, validateCode) {
                 Growl.show('Bank Account successfully validated!', CONST.GROWL.SUCCESS, 3000);
                 Navigation.dismissModal();
                 Onyx.merge(ONYXKEYS.REIMBURSEMENT_ACCOUNT, {loading: false, error: ''});
+                Onyx.merge(ONYXKEYS.USER, {isUsingExpensifyCard: true});
                 return;
             }
 
