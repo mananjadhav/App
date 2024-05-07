@@ -9,6 +9,8 @@ import useThemeStyles from '@hooks/useThemeStyles';
 import type {WithPolicyConnectionsProps} from '@pages/workspace/withPolicyConnections';
 import withPolicyConnections from '@pages/workspace/withPolicyConnections';
 import CONST from '@src/CONST';
+import Navigation from '@libs/Navigation/Navigation';
+import ROUTES from '@src/ROUTES';
 
 type MenuItem = MenuItemProps & {pendingAction?: OfflineWithFeedbackProps['pendingAction']};
 
@@ -65,7 +67,9 @@ function XeroExportConfigurationPage({policy}: WithPolicyConnectionsProps) {
         },
         {
             description: translate('workspace.xero.xeroBankAccount'),
-            onPress: () => {},
+            onPress: () => {
+                Navigation.navigate(ROUTES.POLICY_ACCOUNTING_XERO_BANK_ACCOUNT.getRoute(policyID));
+            },
             brickRoadIndicator: errorFields?.nonReimbursableAccount ? CONST.BRICK_ROAD_INDICATOR_STATUS.ERROR : undefined,
             title: undefined,
             pendingAction: pendingFields?.export,
