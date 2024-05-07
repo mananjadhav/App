@@ -20,7 +20,7 @@ function XeroBankAccountSelectPage({policy}: WithPolicyConnectionsProps) {
   const policyID = policy?.id ?? '';
   const {bankAccounts} = policy?.connections?.xero?.data ?? {};
 
-  const {reimbursementAccountID, syncReimbursedReports} = policy?.connections?.xero?.config.sync ?? {};
+  const {nonReimbursableAccount} = policy?.connections?.xero?.config.export ?? {};
 
   const xeroSelectorOptions = useMemo<SelectorType[]>(
       () =>
@@ -28,9 +28,9 @@ function XeroBankAccountSelectPage({policy}: WithPolicyConnectionsProps) {
               value: id,
               text: name,
               keyForList: id,
-              isSelected: reimbursementAccountID === id,
+              isSelected: nonReimbursableAccount === id,
           })),
-      [reimbursementAccountID, bankAccounts],
+      [bankAccounts, nonReimbursableAccount],
   );
 
   const listHeaderComponent = useMemo(
@@ -46,10 +46,10 @@ function XeroBankAccountSelectPage({policy}: WithPolicyConnectionsProps) {
 
   const updateMode = useCallback(
       ({value}: SelectorType) => {
-          Connections.updatePolicyConnectionConfig(policyID, CONST.POLICY.CONNECTIONS.NAME.XERO, CONST.XERO_CONFIG.SYNC, {
-              reimbursementAccountID: value,
+          Connections.updatePolicyConnectionConfig(policyID, CONST.POLICY.CONNECTIONS.NAME.XERO, CONST.XERO_CONFIG.EXPORT, {
+            nonReimbursableAccount: value,
           });
-          Navigation.goBack(ROUTES.POLICY_ACCOUNTING_XERO_ADVANCED.getRoute(policyID));
+          Navigation.goBack(ROUTES.POLICY_ACCOUNTING_XERO_EXPORT.getRoute(policyID));
       },
       [policyID],
   );
@@ -62,11 +62,10 @@ function XeroBankAccountSelectPage({policy}: WithPolicyConnectionsProps) {
           displayName={XeroBankAccountSelectPage.displayName}
           sections={[{data: xeroSelectorOptions}]}
           listItem={RadioListItem}
-          shouldBeBlocked={!syncReimbursedReports}
           onSelectRow={updateMode}
           initiallyFocusedOptionKey={initiallyFocusedOptionKey}
           headerContent={listHeaderComponent}
-          onBackButtonPress={() => Navigation.goBack(ROUTES.POLICY_ACCOUNTING_XERO_ADVANCED.getRoute(policyID))}
+          onBackButtonPress={() => Navigation.goBack(ROUTES.POLICY_ACCOUNTING_XERO_EXPORT.getRoute(policyID))}
           title="workspace.xero.xeroBankAccount"
       />
   );
