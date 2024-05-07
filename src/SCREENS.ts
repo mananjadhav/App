@@ -245,7 +245,7 @@ const SCREENS = {
             XERO_CUSTOMER: 'Policy_Acounting_Xero_Import_Customer',
             XERO_TAXES: 'Policy_Accounting_Xero_Taxes',
             XERO_EXPORT: 'Policy_Accounting_Xero_Export',
-            XERO_EXPORT_BANK_ACCOUNT: 'Policy_Accounting_Xero_Export_Bank_Account',
+            XERO_EXPORT_BANK_ACCOUNT_SELECT: 'Policy_Accounting_Xero_Export_Bank_Account_Select',
             XERO_ADVANCED: 'Policy_Accounting_Xero_Advanced',
             XERO_INVOICE_ACCOUNT_SELECTOR: 'Policy_Accounting_Xero_Invoice_Account_Selector',
         },

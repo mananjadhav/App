@@ -792,7 +792,7 @@ const ROUTES = {
         route: 'settings/workspaces/:policyID/accounting/xero/export',
         getRoute: (policyID: string) => `settings/workspaces/${policyID}/accounting/xero/export` as const,
     },
-    POLICY_ACCOUNTING_XERO_BANK_ACCOUNT: {
+    POLICY_ACCOUNTING_XERO_BANK_ACCOUNT_SELECT: {
         route: 'settings/workspaces/:policyID/accounting/xero/export/bank-account',
         getRoute: (policyID: string) => `settings/workspaces/${policyID}/accounting/xero/export/bank-account` as const,
     },

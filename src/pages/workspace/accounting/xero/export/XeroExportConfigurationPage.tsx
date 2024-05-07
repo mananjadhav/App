@@ -68,7 +68,7 @@ function XeroExportConfigurationPage({policy}: WithPolicyConnectionsProps) {
         {
             description: translate('workspace.xero.xeroBankAccount'),
             onPress: () => {
-                Navigation.navigate(ROUTES.POLICY_ACCOUNTING_XERO_BANK_ACCOUNT.getRoute(policyID));
+                Navigation.navigate(ROUTES.POLICY_ACCOUNTING_XERO_BANK_ACCOUNT_SELECT.getRoute(policyID));
             },
             brickRoadIndicator: errorFields?.nonReimbursableAccount ? CONST.BRICK_ROAD_INDICATOR_STATUS.ERROR : undefined,
             title: undefined,
