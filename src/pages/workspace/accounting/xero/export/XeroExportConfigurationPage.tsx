@@ -1,4 +1,4 @@
-import React, { useMemo} from 'react';
+import React, {useMemo} from 'react';
 import ConnectionLayout from '@components/ConnectionLayout';
 import type {MenuItemProps} from '@components/MenuItem';
 import MenuItemWithTopDescription from '@components/MenuItemWithTopDescription';
@@ -6,10 +6,10 @@ import OfflineWithFeedback from '@components/OfflineWithFeedback';
 import type {OfflineWithFeedbackProps} from '@components/OfflineWithFeedback';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
+import Navigation from '@libs/Navigation/Navigation';
 import type {WithPolicyConnectionsProps} from '@pages/workspace/withPolicyConnections';
 import withPolicyConnections from '@pages/workspace/withPolicyConnections';
 import CONST from '@src/CONST';
-import Navigation from '@libs/Navigation/Navigation';
 import ROUTES from '@src/ROUTES';
 
 type MenuItem = MenuItemProps & {pendingAction?: OfflineWithFeedbackProps['pendingAction']};
@@ -81,7 +81,7 @@ function XeroExportConfigurationPage({policy}: WithPolicyConnectionsProps) {
             brickRoadIndicator: errorFields?.nonReimbursableAccount ? CONST.BRICK_ROAD_INDICATOR_STATUS.ERROR : undefined,
             title: selectedBankAccountName,
             pendingAction: pendingFields?.export,
-            error: errorFields?.nonReimbursableAccount? translate('common.genericErrorMessage') : undefined,
+            error: errorFields?.nonReimbursableAccount ? translate('common.genericErrorMessage') : undefined,
         },
     ];
 
