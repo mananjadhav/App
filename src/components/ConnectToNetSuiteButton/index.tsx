@@ -26,8 +26,7 @@ function ConnectToNetSuiteButton({policyID, shouldDisconnectIntegrationBeforeCon
                         return;
                     }
 
-                    // Will be updated to new token input page
-                    Navigation.navigate(ROUTES.POLICY_ACCOUNTING_NETSUITE_SUBSIDIARY_SELECTOR.getRoute(policyID));
+                    Navigation.navigate(ROUTES.POLICY_ACCOUNTING_NETSUITE_TOKEN_INPUT.getRoute(policyID));
                 }}
                 text={translate('workspace.accounting.setup')}
                 style={styles.justifyContentCenter}
@@ -41,8 +40,7 @@ function ConnectToNetSuiteButton({policyID, shouldDisconnectIntegrationBeforeCon
                     onConfirm={() => {
                         removePolicyConnection(policyID, integrationToDisconnect);
 
-                        // Will be updated to new token input page
-                        Navigation.navigate(ROUTES.POLICY_ACCOUNTING_NETSUITE_SUBSIDIARY_SELECTOR.getRoute(policyID));
+                        Navigation.navigate(ROUTES.POLICY_ACCOUNTING_NETSUITE_TOKEN_INPUT.getRoute(policyID));
                         setIsDisconnectModalOpen(false);
                     }}
                     onCancel={() => setIsDisconnectModalOpen(false)}
