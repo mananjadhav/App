@@ -1347,6 +1347,7 @@ const CONST = {
             3: 'createAccessToken',
             4: 'enterCredentials',
         },
+        IMPORT_FIELDS: ['departments', 'classes', 'locations', 'customers', 'jobs'],
     },
 
     QUICKBOOKS_REIMBURSABLE_ACCOUNT_TYPE: {
